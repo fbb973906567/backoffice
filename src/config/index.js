@@ -1,3 +1,3 @@
-const configName = process.env.REACT_APP_API
-console.log(process.env)
+const configName = process.env.NODE_ENV
+
 export default require(`./${configName}.js`).default

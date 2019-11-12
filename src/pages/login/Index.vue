@@ -3,7 +3,7 @@
     <div class="content">
       <div class="left">
         <div class="logo">
-          <img alt="logo" src="./logo.svg">
+          <img alt="logo" src="./logo.svg" />
         </div>
         <div class="text">
           <span>欢迎来到</span>
@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-import LOGIN from "@/axios/server";
+// import { LoginAjax } from "@/axios/server";
 export default {
   name: "HelloWorld",
   data() {
@@ -80,10 +80,10 @@ export default {
       console.log(formName);
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // this.$message('这是一条消息提示');
-          LOGIN().then(res => {
-            console.log(res);
-          });
+          // LoginAjax().then(res => {
+          //   console.log(res);
+          // });
+          this.$router.push('/')
         } else {
           console.log("error submit!!");
           return false;
