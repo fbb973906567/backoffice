@@ -3,7 +3,7 @@
     <div class="content">
       <div class="left">
         <div class="logo">
-          <img alt="logo" src="./logo.svg" />
+          <img alt="logo" src="./logo.svg">
         </div>
         <div class="text">
           <span>欢迎来到</span>
@@ -36,7 +36,8 @@
   </div>
 </template>
 <script>
-// import { LoginAjax } from "@/axios/server";
+import { LoginAjax } from "@/axios/server";
+import storage from '@/storage.js'
 export default {
   name: "HelloWorld",
   data() {
@@ -77,13 +78,15 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      console.log(formName);
+      let params = this.ruleForm;
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // LoginAjax().then(res => {
-          //   console.log(res);
-          // });
-          this.$router.push('/')
+          LoginAjax(params).then(({data}) => {
+            storage.clear();
+            storage.setString("accessToken", data.token);
+            storage.setString("userData", JSON.stringify(data));
+            this.$router.push("/");
+          });
         } else {
           console.log("error submit!!");
           return false;
