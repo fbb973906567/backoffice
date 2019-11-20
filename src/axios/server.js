@@ -4,3 +4,7 @@ import * as Api from './type'
 export const LoginAjax = (options) => {
   return Http.post(Api.LOGIN, options)
 }
+// 单品主档
+export const SkuList = (options) => {
+  return Http.post(Api.SKU_LIST, options)
+}

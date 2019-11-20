@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-container>
+    <el-container class="container">
       <el-aside width="200px">
         <div class="title">真臻鲜包材平台</div>
         <h5>默认颜色</h5>
@@ -33,7 +33,7 @@
           </el-menu-item>
         </el-menu>
       </el-aside>
-      <el-container>
+      <el-container class="right">
         <el-header><Header/></el-header>
         <el-main>
           <router-view></router-view>
@@ -51,5 +51,14 @@ export default {
   }
 };
 </script>
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
+.home{
+  height: 100%;
+  .container{
+    height: 100%;
+    .right{
+      background-color: #f6f6f6;
+    }
+  }
+}
 </style>

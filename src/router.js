@@ -5,7 +5,7 @@ import Login from './pages/login/Index.vue'
 import Home from './pages/home/Index.vue'
 import A from './pages/a/Index.vue'
 import B from './pages/b/Index.vue'
-import ItemSold from '@/pages/products/itemsold/Index.vue'
+import Main from '@/pages/products/main/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -22,8 +22,8 @@ export default new VueRouter({
       path: 'b',
       component: B,
     }, {
-      path: 'itemsold',
-      component: ItemSold
+      path: 'main',
+      component: Main
     }]
   }, {
     path: '/login',
