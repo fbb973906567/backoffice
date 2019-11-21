@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../config'
 import storage from '@/storage.js'
-
+import { Message } from 'element-ui';
 axios.defaults.baseURL = config.apiUrl
 axios.defaults.headers = {
   'Content-Type': 'application/json'
@@ -22,7 +22,10 @@ axios.interceptors
       return response.data
     }
   }, error => {
-    this.$message(error);
+    if (error.response && error.response.status === 401) {
+      Message(error.response.data.message);
+      // this.$router.push("/login");
+    }
   })
 
 export default {

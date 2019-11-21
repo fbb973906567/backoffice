@@ -1,8 +1,6 @@
 <template>
   <div class="page">
-    <el-breadcrumb separator="/">
-  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-</el-breadcrumb>
+    <BreadCrumb :linkList='link'/>
     <Search @searchClick="searchClick"/>
     <Table @pageChange='pageChange' :tableData='resultData' :totalNum='total'/>
   </div>
@@ -11,11 +9,13 @@
 import Search from "./search/Index.vue";
 import Table from "./table/Index.vue";
 import {SkuList} from '@/axios/server'
+import BreadCrumb from '@/components/crumb/Index.vue'
 export default {
   name: "Main",
   components: {
     Search,
-    Table
+    Table,
+    BreadCrumb
   },
   methods: {
     searchClick(newParams) {
@@ -54,7 +54,10 @@ export default {
         // searchName: "ERP1000593",
         // status: 0,
       },
-   
+   link:[{
+     text:'单品主档',
+     url:'/main'
+   }]
     };
   }
 };

@@ -7,6 +7,7 @@ import { Button, Select, Input } from 'element-ui';
 Vue.use(Button)
 Vue.use(Select)
 Vue.use(Input)
+// Vue.use(Message)
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false

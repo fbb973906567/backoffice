@@ -15,7 +15,7 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="1-1">单品主档</el-menu-item>
-              <el-menu-item index="1-2">SPU商品管理</el-menu-item>
+              <el-menu-item index="1-2">单品销售管理</el-menu-item>
               <el-menu-item index="1-3">选项3</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
