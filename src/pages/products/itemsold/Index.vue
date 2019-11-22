@@ -4,18 +4,15 @@
     <div class="head">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="在线单品管理" name="1">
-          <Search/>
         </el-tab-pane>
         <el-tab-pane label="待售单品管理" name="0">
-          <Search/>
         </el-tab-pane>
         <el-tab-pane label="待完善新品" name="99">
-          <Search/>
         </el-tab-pane>
         <el-tab-pane label="问题单品" name="100">
-          <Search/>
         </el-tab-pane>
       </el-tabs>
+      <Search :threeLevel='flag'/>
     </div>
   </div>
 </template>
@@ -30,6 +27,7 @@ export default {
   },
   data() {
     return {
+      flag: '',
       link: [
         {
           text: "单品销售管理",
@@ -38,6 +36,15 @@ export default {
       ],
       activeName: "1"
     };
+  },
+  methods: {
+    handleClick(e){
+      if (e.name === '100') {
+        this.flag = false;
+      } else {
+        this.flag = true;
+      }
+    }
   }
 };
 </script>
