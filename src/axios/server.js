@@ -17,3 +17,17 @@ export const SiteList = (options) => {
   return Http.post(Api.SITE_LIST, options)
 }
 
+// 单品销售管理列表查询
+export const SalesList = (options) => {
+  return Http.post(Api.SALES_LIST, options)
+}
+// 单品下架(批量)
+export const skuSoldOut = (options) => {
+  return Http.post(Api.SOLD_OUT, options)
+}
+
+// 单品上架(批量)
+export const skuPutAway = (options) => {
+  return Http.post(Api.PUT_AWAY, options)
+}
+

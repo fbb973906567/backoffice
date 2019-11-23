@@ -28,13 +28,19 @@
       </el-select>
     </div>
     <el-select v-model="siteCode" placeholder="请选择对应站点" class="siteCode">
-      <el-option v-for="item in level1" :key="item.value" :label="item.label" :value="item.value"></el-option>
+      <el-option
+        v-for="item in siteList"
+        :key="item.siteCode"
+        :label="item.siteName"
+        :value="item.siteCode"
+      ></el-option>
     </el-select>
-    <el-button type="primary">查询</el-button>
+    <el-button type="primary" @click="goSearch">查询</el-button>
   </div>
 </template>
 <script>
 import { LevelList } from "@/axios/server";
+import { SiteList } from "@/axios/server";
 export default {
   name: "Search",
   props: {
@@ -49,6 +55,7 @@ export default {
       level1: [],
       level2: [],
       level3: [],
+      siteList: [],
       categoryOne: "",
       categoryTwo: "",
       categoryThree: "",
@@ -59,14 +66,37 @@ export default {
     LevelList().then(({ data }) => {
       this.level1 = data;
     });
+    SiteList().then(({ data }) => {
+      this.siteList = data;
+    });
   },
   methods: {
     handleChange(type, val) {
       if (type === "first") {
         this.level2 = this.level1.find(x => x.value === val).children;
-      } else {
+        this.categoryTwo = "";
+        this.categoryThree = "";
+      } else if (type === "second") {
         this.level3 = this.level2.find(x => x.value === val).children;
+        this.categoryThree = "";
       }
+    },
+    goSearch() {
+      const {
+        skuText,
+        categoryOne,
+        categoryTwo,
+        categoryThree,
+        siteCode
+      } = this;
+      const params = {
+        skuText,
+        categoryOne,
+        categoryTwo,
+        categoryThree,
+        siteCode
+      };
+      this.$emit("gosearch", params);
     }
   }
 };

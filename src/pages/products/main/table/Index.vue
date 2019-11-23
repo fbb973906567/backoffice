@@ -1,6 +1,7 @@
 <template>
   <div class="table">
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="tableData" style="width: 100%" >
+      <el-table-column type="index" width="50"></el-table-column>
       <el-table-column type="index" :index="indexMethod"></el-table-column>
       <el-table-column prop="skuCode" label="单品编码" align="center"></el-table-column>
       <el-table-column prop="skuName" label="单品名称" align="center"></el-table-column>
@@ -28,8 +29,8 @@ export default {
       type: Array,
       default: () => []
     },
-    totalNum:{
-       type: Number
+    totalNum: {
+      type: Number
     }
   },
   data() {
@@ -44,12 +45,12 @@ export default {
     indexMethod(index) {
       return index;
     },
-    formatterTime(time){
+    formatterTime(time) {
       return moment(time.syncTime).format("YYYY-MM-DD");
     },
-    formatterStatue(status){
-      console.log(status.bindingState)
-      return status.bindingState===0?'未绑定':'已绑定'
+    formatterStatue(status) {
+      console.log(status.bindingState);
+      return status.bindingState === 0 ? "未绑定" : "已绑定";
     }
   }
 };
