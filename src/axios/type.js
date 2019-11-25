@@ -16,3 +16,6 @@ export const SOLD_OUT = 'sku/sales/sold/out'
 
 // 单品上架(批量)
 export const PUT_AWAY = 'sku/sales/putaway'
+
+// 单品销售详情
+export const SKUSALES_DETAIL = 'sku/sales/edit/detail'

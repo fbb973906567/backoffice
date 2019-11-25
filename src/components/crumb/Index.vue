@@ -1,11 +1,13 @@
 <template>
   <div class="bread">
-    <el-breadcrumb separator="/">
-      <!-- <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item> -->
-      <el-breadcrumb-item :key="index" v-for="(todo,index) in linkList">
-        <a :href=todo.url :key="index" v-for="(todo,index) in linkList">{{ todo.text }}</a>
-      </el-breadcrumb-item>
-    </el-breadcrumb>
+      <el-breadcrumb separator="/">
+              <el-breadcrumb-item>当前位置:</el-breadcrumb-item>
+              <el-breadcrumb-item
+                :to="{ path: items.url }"
+                v-for="(items,index) in linkList"
+                :key="index"
+              >{{items.text}}</el-breadcrumb-item>
+            </el-breadcrumb>
   </div>
 </template>
 <script>

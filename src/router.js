@@ -6,6 +6,7 @@ import Home from './pages/home/Index.vue'
 import A from './pages/a/Index.vue'
 import Main from '@/pages/products/main/Index.vue'
 import ItemSold from '@/pages/products/itemsold/Index.vue'
+import ItemSoldEdit from '@/pages/products/itemsold/edit/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,10 @@ export default new VueRouter({
     }, {
       path: 'main',
       component: Main
+    },{
+      path:'itemsold/edit',
+      name:'itemsold',
+      component:ItemSoldEdit
     }]
   }, {
     path: '/login',

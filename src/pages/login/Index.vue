@@ -96,6 +96,9 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }
+  },
+  created(){
+    storage.clear('accessToken')
   }
 };
 </script>

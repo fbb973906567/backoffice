@@ -22,7 +22,7 @@
           <div v-if="scope.row.sellStatusCd===1">
             <el-button type="success" @click="goUp(scope.row.siteCode,scope.row.skuCode)">下架</el-button>
             <el-divider direction="vertical"/>
-            <el-button type="success">编辑</el-button>
+            <el-button type="success" @click="goEdit(scope.row)">编辑</el-button>
           </div>
           <div v-if="scope.row.sellStatusCd===0">
             <el-button type="success" @click="goDown(scope.row.siteCode,scope.row.skuCode)">上架</el-button>
@@ -87,6 +87,12 @@ export default {
       skuPutAway({ params: [{ siteCode, skuCode }] }).then(() => {
         this.$emit("refresh");
       });
+    },
+    goEdit(item){
+      const {skuCode,siteCode} = item
+      console.log(skuCode)
+      console.log(siteCode)
+       this.$router.push({ path: '/itemsold/edit', query: { skuCode,siteCode }})
     }
   }
 };

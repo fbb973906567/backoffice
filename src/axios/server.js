@@ -31,3 +31,7 @@ export const skuPutAway = (options) => {
   return Http.post(Api.PUT_AWAY, options)
 }
 
+// 查看单品销售详情
+export const getSkuSalesDetail = (options) => {
+  return Http.post(Api.SKUSALES_DETAIL, options)
+}
