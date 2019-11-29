@@ -22,9 +22,11 @@ axios.interceptors
       return response.data
     }
   }, error => {
+    // 其他设备登录
     if (error.response && error.response.status === 401) {
       Message(error.response.data.message);
-      // this.$router.push("/login");
+      localStorage.removeItem('accessToken')
+      window.location.reload()
     }
   })
 

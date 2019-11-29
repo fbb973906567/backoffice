@@ -1,18 +1,21 @@
 <template>
   <div class="edit">
     <BreadCrumb :linkList="link"/>
-    <Info/>
+    <Info :data='skuInfo'/>
+    <Attr :data='salesInfo'/>
   </div>
 </template>
 <script>
 import { getSkuSalesDetail } from "@/axios/server";
 import BreadCrumb from "@/components/crumb/Index.vue";
 import Info from './Info.vue'
+import Attr from './Attr.vue'
 export default {
   name: "Index",
   components: {
     BreadCrumb,
-    Info
+    Info,
+    Attr
   },
   data() {
     return {

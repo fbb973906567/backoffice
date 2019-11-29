@@ -10,7 +10,7 @@ import ItemSoldEdit from '@/pages/products/itemsold/edit/Index.vue'
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+ const router = new VueRouter({
   mode: 'history',
   routes: [{
     path: '/',
@@ -36,3 +36,16 @@ export default new VueRouter({
     component: Login
   }]
 })
+
+// 判断进入其他页面有没有先登录
+router.beforeEach((to, from, next) => {
+  const isLogin = localStorage.accessToken ? true : false;
+  if (to.path == "/login") {
+    next();
+  } else {
+    isLogin ? next() : next('/login')
+  }
+})
+
+
+export default router

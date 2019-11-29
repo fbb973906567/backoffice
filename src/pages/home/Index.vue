@@ -7,6 +7,7 @@
         <el-menu
           default-active="2"
           class="el-menu-vertical-demo"
+          :router=true
         >
           <el-submenu index="1">
             <template slot="title">
@@ -14,8 +15,8 @@
               <span>商品管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="1-1">单品主档</el-menu-item>
-              <el-menu-item index="1-2">单品销售管理</el-menu-item>
+              <el-menu-item index="/main">单品主档</el-menu-item>
+              <el-menu-item index="/itemsold">单品销售管理</el-menu-item>
               <el-menu-item index="1-3">选项3</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
